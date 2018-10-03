@@ -5,7 +5,6 @@
 
 
 import os
-import pandas as pd 
 
 path = os.path.join(os.getcwd(), 'Migrations')
 print(path)
@@ -15,11 +14,11 @@ a = len(dir_work)
 print(a)  
 
 
-# In[4]:
+# In[5]:
 
 
-just_massive = []
-rez_massive = []
+intermediate = []
+rezult = []
 cnt = 0
 first_input = input('Введите строку: ')
 for i in dir_work:
@@ -28,33 +27,33 @@ for i in dir_work:
         df = open(i)
         df = df.read()
         if df.find(first_input) != -1:
-            just_massive.append(i)
+            intermediate.append(i)
             cnt += 1
 
-rez_massive = just_massive        
-for j in rez_massive:
-    print(j)
+rezult = intermediate        
+for i in rezult:
+    print(i)
     
 print('Всего: ', cnt)
 print('')
 
 while True:
     another_input = input('Введите строку: ')
-    just_massive = []
+    intermediate = []
     cnt = 0
     if another_input == 'exit':
         break
         
-    for k in rez_massive:
-        df1 = open(k)
-        df1 = df1.read()
-        if df1.find(another_input) != -1:
-            just_massive.append(k)
+    for i in rezult:
+        df = open(i)
+        df = df.read()
+        if df.find(another_input) != -1:
+            intermediate.append(i)
             cnt += 1
         
-    rez_massive = just_massive    
-    for j in rez_massive:
-        print(j)
+    rezult = intermediate    
+    for i in rezult:
+        print(i)
     
     print('Всего: ', cnt)
     print('')
