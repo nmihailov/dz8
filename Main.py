@@ -1,31 +1,65 @@
 
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 import os
+import pandas as pd 
 
-path = os.getcwd() + '\Migrations'
+path = os.path.join(os.getcwd(), 'Migrations')
 print(path)
 os.chdir(path)
 dir_work = os.listdir(path)
 a = len(dir_work)
+print(a)  
 
-search = input('Введите искомое слово:')
-result = []
-for i in range (0, a):
-    if dir_work[i].find(search) != -1:
-        result.append(dir_work[i])
-        print(dir_work[i])
 
-print('----------------------------------------------')
+# In[ ]:
+
+
+just_massive = []
+rez_massive = []
+cnt = 0
+first_input = input('Введите строку: ')
+for i in dir_work:
+    check = i.split('.')
+    if check[-1] == 'sql':
+        df = open(i)
+        df = df.read()
+        if df.find(first_input) != -1:
+            just_massive.append(i)
+            cnt += 1
+
+rez_massive = just_massive        
+for j in rez_massive:
+    print(j)
+    
+print('Всего: ', cnt)
 print('')
-b = len(result)
+
 while True:
-    search2 = input('Введите искомое слово точнее:')
-    for i in range(0, b):
-        if result[i].find(search2) != -1:
-            print(result[i])
+    another_input = input('Введите строку: ')
+    just_massive2 = []
+    cnt2 = 0
+    if another_input == 'exit':
+        break
         
+    for k in rez_massive:
+        df1 = open(k)
+        df1 = df1.read()
+        if df1.find(another_input) != -1:
+            just_massive2.append(k)
+            cnt2 += 1
+        
+    rez_massive = just_massive2    
+    for j in rez_massive:
+        print(j)
+    
+    print('Всего: ', cnt2)
+    print('')
+    if cnt2 = 1:
+        break 
+    
+    cnt2 = 0        
 
