@@ -15,7 +15,7 @@ a = len(dir_work)
 print(a)  
 
 
-# In[ ]:
+# In[4]:
 
 
 just_massive = []
@@ -40,8 +40,8 @@ print('')
 
 while True:
     another_input = input('Введите строку: ')
-    just_massive2 = []
-    cnt2 = 0
+    just_massive = []
+    cnt = 0
     if another_input == 'exit':
         break
         
@@ -49,17 +49,17 @@ while True:
         df1 = open(k)
         df1 = df1.read()
         if df1.find(another_input) != -1:
-            just_massive2.append(k)
-            cnt2 += 1
+            just_massive.append(k)
+            cnt += 1
         
-    rez_massive = just_massive2    
+    rez_massive = just_massive    
     for j in rez_massive:
         print(j)
     
-    print('Всего: ', cnt2)
+    print('Всего: ', cnt)
     print('')
-    if cnt2 = 1:
+    if cnt == 1:
         break 
     
-    cnt2 = 0        
+    cnt = 0        
 
